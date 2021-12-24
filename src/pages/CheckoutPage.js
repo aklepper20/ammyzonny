@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import CheckoutProduct from "../components/CheckoutProduct";
+import Subtotal from "../components/Subtotal";
 import { useStateValue } from "../StateProvider";
 import "../css/Checkout.css";
 function CheckoutPage() {
@@ -11,33 +12,41 @@ function CheckoutPage() {
     <>
       <Header />
       <div className="checkout">
-        <img
-          className="checkout__ad"
-          src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg"
-          alt="Advertisment Image"
-        />
-        {/* if theres nothing in my basket, show me this html. Else render the html showing all items in the cart */}
-        {basket?.length === 0 ? (
-          <div>
-            <h2>Your shopping cart is empty...</h2>
-            <p>
-              You have no items in your basket. To buy one or more items, click
-              "Add to basket" next to the item.
-            </p>
-          </div>
-        ) : (
-          <div className="checkout__title">
-            <h2>Your Shopping Basket</h2>
-            {/* List out all, or map all of the checkout products */}
-            {basket?.map((item) => (
-              <CheckoutProduct
-                id={item.id}
-                title={item.title}
-                price={item.price}
-                rating={item.rating}
-                image={item.image}
-              />
-            ))}
+        <div className="checkout_left">
+          <img
+            className="checkout__ad"
+            src="https://images-na.ssl-images-amazon.com/images/G/02/UK_CCMP/TM/OCC_Amazon1._CB423492668_.jpg"
+            alt="Advertisment Image"
+          />
+          {/* if theres nothing in my basket, show me this html. Else render the html showing all items in the cart */}
+          {basket?.length === 0 ? (
+            <div>
+              <h2>Your shopping cart is empty...</h2>
+              <p>
+                You have no items in your basket. To buy one or more items,
+                click "Add to basket" next to the item.
+              </p>
+            </div>
+          ) : (
+            <div className="checkout__title">
+              <h2>Your Shopping Basket</h2>
+              {/* List out all, or map all of the checkout products */}
+              {basket?.map((item) => (
+                <CheckoutProduct
+                  id={item.id}
+                  title={item.title}
+                  price={item.price}
+                  rating={item.rating}
+                  image={item.image}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+        {/* if the basket length is greated than 0 render our the right side div on the screen within the checkout compoent */}
+        {basket.length > 0 && (
+          <div className="checkout__right">
+            <Subtotal />
           </div>
         )}
       </div>

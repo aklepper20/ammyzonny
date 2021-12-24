@@ -1,6 +1,8 @@
 .checkoutProduct {
   display: flex;
   padding-left: 7px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .checkoutProduct img {
