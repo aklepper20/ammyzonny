@@ -8,7 +8,7 @@ import { useStateValue } from "../StateProvider";
 function Header() {
   //dispatch is a gun that shoots an action to the data layer with a certain item to add or remove. but dont need it bc we are manipulating the basket data
   const [{ basket }] = useStateValue();
-
+  console.log(basket);
   return (
     <nav className="header">
       <Link to="/">
