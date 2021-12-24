@@ -1,7 +1,13 @@
 import React from "react";
+import Header from "../components/Header";
 
 function CheckoutPage() {
-  return <div>CHECKOUT</div>;
+  return (
+    <>
+      <Header />
+      <div></div>
+    </>
+  );
 }
 
 export default CheckoutPage;
