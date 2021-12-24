@@ -14,6 +14,7 @@ function HomePage() {
           alt="Home Image"
         />
         {/* Product: id, title, price, rating, image */}
+        {/* By putting 2 then 3 then 1 box within a row flex will scale it based on how many boxes we put into a row */}
         <div className="home__row">
           <Product
             id={234}

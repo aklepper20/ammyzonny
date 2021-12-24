@@ -3,8 +3,12 @@ import "../css/Header.css";
 import { Link } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import { useStateValue } from "../StateProvider";
 
 function Header() {
+  //dispatch is a gun that shoots an action to the data layer with a certain item to add or remove. but dont need it bc we are manipulating the basket data
+  const [{ basket }] = useStateValue();
+
   return (
     <nav className="header">
       <Link to="/">
@@ -40,7 +44,9 @@ function Header() {
         <Link to="/checkout" className="header__link">
           <div className="header__optionBasket">
             <ShoppingBasketIcon />
-            <span className="header__optionLineTwo header__basketCount">0</span>
+            <span className="header__optionLineTwo header__basketCount">
+              {basket?.length}
+            </span>
           </div>
         </Link>
       </div>

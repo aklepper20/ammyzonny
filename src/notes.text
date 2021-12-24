@@ -1,0 +1,18 @@
+SETUP REACT CONTEXT API
+
+-each component has a bunch of props and we have to pass props down from the top of the app which is prop drilling and its super messy
+-if we have a user that needs to be fed info from each different component we have to pass props-by setting up useContext we can just access the user whenever and wherever using the useStateValue()
+
+-UserBasket needs info from everywhere and a lot of info attached to it.
+
+-the context data layer is accessible everywhere. no prop drilling.
+-we push things into the data layer by dispatching it. Say u add something to the basket using the add button, it dispatches 
+ to the context api and every component is updated immediately by the context api and knows about the product that was jsut added
+- we need a data layer so we have a record of 1. the basket when we push things into it then use it in the checkout page. 2. Keep track of user of login page and transfer user infomation to the home page
+
+FILES NEEDED - 
+StateProvider.js 
+
+CONTEXT API VS REDUX
+-redux been in the game for so long, learning curve and u can do more with it
+-react context api is light and easy to set up
