@@ -16,3 +16,6 @@ StateProvider.js
 CONTEXT API VS REDUX
 -redux been in the game for so long, learning curve and u can do more with it
 -react context api is light and easy to set up
+
+react-dom.development.js:11102 Uncaught TypeError: Cannot read properties of undefined (reading 'map')
+- just do optional chaining when u get this error ex: basket?.map()

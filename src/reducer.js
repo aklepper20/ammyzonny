@@ -17,7 +17,28 @@ const reducer = (state, action) => {
         basket: [...state.basket, action.item],
       };
     case "REMOVE_FROM_BASKET":
-      return { state };
+      //allow us to find the product, slice the array up then return the array back to the checkout page
+      let newBasket = [...state.basket];
+
+      //go through current basket array and check it against to match the dispatch action id of remove item we clicked on
+      const index = state.basket.findIndex(
+        (basketItem) => basketItem.id === action.id
+      );
+
+      if (index >= 0) {
+        //item esixts in basket, we remove it
+        //go to the point of the item we want to remove and cut it
+        newBasket.splice(index, 1);
+      } else {
+        console.warn(
+          `cant remove product (id: ${action.id}), its not in basket`
+        );
+      }
+      //set the state to be the newBasket array with the item chopped out of it
+      return {
+        ...state,
+        basket: newBasket,
+      };
     default:
       return state;
   }
